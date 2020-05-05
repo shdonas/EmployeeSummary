@@ -113,20 +113,13 @@ function EngineerQuestions() {
         console.log('these are our answers in the .then for Manager questions!!', answers);
         var EngineerWeCreated = new Engineer(answers.first_name, 1, answers.Email, answers.Github);
         console.log('this is intern we just made', EngineerWeCreated)
-
     });
-
 }
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-var devTeam = [{
-    type: 'list',
-    name: 'employeeType',
-    message: "Number of Manager(s) for the team: ",
-    choices: [1, 2, 3]
-}, ];
+render;
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
