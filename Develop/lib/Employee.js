@@ -8,15 +8,15 @@ class Employee {
     }
 
     getName() {
-        console.log("Function called" + this.name);
+        return this.name;
     }
 
     getID() {
-
+        return this.id;
     }
 
     getEmail() {
-
+        return this.email;
     }
 
     getRole() {

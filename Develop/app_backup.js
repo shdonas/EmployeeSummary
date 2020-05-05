@@ -18,18 +18,33 @@ var questions = [{
     choices: ['Manager', 'Intern', 'Engineer']
 }, ];
 
+var addEmployee = [{
+    type: 'list',
+    name: 'add',
+    message: "Add more Employee? ",
+    choices: ['Yes', 'No']
+}, ];
 
 inquirer.prompt(questions).then(function (answers) {
     console.log('these are our answers in the .then!!', answers);
-
-    if (answers.employeeType === 'Intern') {
-        internQuestions()
-    } else if (answers.employeeType === 'Manager') {
-        ManagerQuestions()
-    } else if (answers.employeeType === "Engineer") {
-        EngineerQuestions();
-    }
-
+    var i = 1;
+    do {
+        console.log("")
+        if (answers.employeeType === 'Intern') {
+            internQuestions()
+        } else if (answers.employeeType === 'Manager') {
+            ManagerQuestions()
+        } else if (answers.employeeType === "Engineer") {
+            EngineerQuestions();
+        }
+        inquirer.prompt(addEmployee).then(function (answers) {
+            if (answers.add === "Yes") {
+                i = 1;
+            } else if (answers.add === "No") {
+                i = 0;
+            }
+        })
+    } while (i == 0);
 });
 
 
@@ -56,6 +71,10 @@ function internQuestions() {
     inquirer.prompt(questions).then(function (answers) {
         console.log('these are our answers in the .then for intern questions!!', answers);
         var internWeCreated = new Intern(answers.first_name, 1, answers.Email, answers.school);
+
+        // super function called
+        internWeCreated.getName();
+
         console.log('this is intern we just made', internWeCreated)
 
     });
